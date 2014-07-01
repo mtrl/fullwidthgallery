@@ -16,6 +16,7 @@
             body {
                 font-family: 'Roboto', sans-serif;
                 background: url(/img/rosemary.jpg) top center no-repeat;
+                background-attachment: fixed;
             }
             h1 {
                 font-size: 24px;
