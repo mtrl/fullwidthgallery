@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Rose</title>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
         <script type="text/javascript">
@@ -11,6 +12,17 @@
                     $(".fancybox").fancybox();
             });
         </script>
+        <style type="text/css">
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: url(/img/rosemary.jpg) top center no-repeat;
+            }
+            h1 {
+                font-size: 24px;
+                color: #ea86ff;
+                font-weight: 100;
+            }
+        </style>
 </head>
 <body>
 
