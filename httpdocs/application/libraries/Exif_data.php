@@ -24,7 +24,7 @@ class Exif_data{
 	 */
 	public function get_gps_data($full_image_path){
 	
-		$raw_exif = exif_read_data($full_image_path, 0, true);
+		@$raw_exif = exif_read_data($full_image_path, 0, true);
 				
 		    
 	    if (isset($raw_exif['GPS']['GPSLatitude']) && isset($raw_exif['GPS']['GPSLongitude'])){ 
@@ -67,7 +67,7 @@ class Exif_data{
 	 * @return	array
 	 */
 	public function get_exif_info($full_image_path){
-		$raw_exif = exif_read_data($full_image_path, 0, true);
+		@$raw_exif = exif_read_data($full_image_path, 0, true);
 		if(!isset($raw_exif["EXIF"]["DateTimeOriginal"])) {
 			$data["date_time"] = date('Y-m-d H:i:s', filemtime($full_image_path));
 		} else {		

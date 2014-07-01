@@ -4,12 +4,13 @@ class Photo extends CI_model {
     var $path;
     var $filename;
     var $exif;
+    var $label;
     
     var $thumbnail_url;
+    var $url;
     
     function __construct() {
         parent::__construct();
-        
         $this->load->library('image_lib');
     }
     
@@ -17,29 +18,44 @@ class Photo extends CI_model {
         $this->filename = $filename;
         $this->path = $this->config->config['photo_directory'] . '/' . $filename;
         $this->load_exif_data();
-        $this->url = $this->config->config['photo_directory_root_url'] . '/' . $filename;
+        $this->resize_for_web();
         $this->create_thumbnail();
+        $this->set_label();
+    }
+    
+    private function set_label() {
+        $label = preg_replace('/\\.[^.\\s]{3,4}$/', '', $this->filename);
+        $this->label = $label;
+    }
+    
+    private function resize_for_web() {
+        $this->url = $this->resize($this->filename, $this->config->config['photo_height']);
     }
     
     private function create_thumbnail() {
-        if(!file_exists($this->config->config['photo_directory_thumbnails'] . '/' . $this->filename)) {
+        $this->thumbnail_url = $this->resize($this->filename, $this->config->config['photo_thumbnail_height']);
+    }
+    
+    private function resize($file, $height) {
+        $photo_dir = $this->config->config['photo_directory'] . '/' . $height;
+        $target_file = $photo_dir . '/' . $file;
+        if(!file_exists($photo_dir)) {
+            mkdir($photo_dir);
+        }
+        if(!file_exists($target_file)) {
             $config['image_library'] = 'gd2';
             $config['thumb_marker'] = '';
-            $config['source_image']	= $this->path;
+            $config['source_image'] = $this->config->config['photo_directory'] . '/' . $file;
             $config['create_thumb'] = TRUE;
-            $config['new_image'] = $this->config->config['photo_directory_thumbnails'] . '/' . $this->filename;
+            $config['new_image'] = $target_file;
             $config['maintain_ratio'] = TRUE;
             $config['width']	= -1;
-            $config['height']	= $this->config->config['photo_thumbnail_height'];
+            $config['height']	= $height;
             $this->load->library('image_lib');
             $this->image_lib->initialize($config);
-            try {
-                $this->image_lib->resize();
-            } catch(Exception $ex) {
-                echo $ex->message;
-            }
+            $this->image_lib->resize();
         }
-        $this->thumbnail_url = $this->config->config['photo_directory_thumbnails_root_url'] . '/' . $this->filename;
+        return $this->config->config['photo_directory_root_url'] . '/' . $height . '/' . $file;
     }
     
     private function load_exif_data() {
