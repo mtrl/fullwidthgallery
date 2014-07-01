@@ -1,1 +1,2 @@
-httpdocs/photos/*
+httpdocs/photos/*.JPG
+httpdocs/photos/*.jpg
