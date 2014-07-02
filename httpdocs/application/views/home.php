@@ -29,9 +29,7 @@
     <?php foreach($photos as $month => $photos): ?>
         <h1><?php echo date('F Y', strtotime($month)) ?></h1>
         <?php foreach($photos as $key => $photo): ?>
-            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->label ?>">
-                <img src="<?php echo $photo->thumbnail_url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
-            </a>
+            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->label ?>"><img src="<?php echo $photo->thumbnail_url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" /></a>
             <!-- <?php echo $photo->thumbnail_url ?><br /> -->
         <?php endforeach; ?>      
     <?php endforeach; ?>  
