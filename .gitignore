@@ -1,2 +1,3 @@
 httpdocs/photos/*
 httpdocs/application/cache/*
+!httpdocs/photos/index.html

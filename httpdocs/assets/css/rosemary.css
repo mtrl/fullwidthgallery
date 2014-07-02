@@ -1,0 +1,30 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: #000;
+}
+h1 {
+    font-size: 24px;
+    color: #ea86ff;
+    font-weight: 100;
+    display: inline;
+    float: left;
+    margin: 0 10px;
+}
+
+.item {
+    display: block;
+    float: left;
+    position: relative;
+    margin-bottom: -2px;
+}
+a { text-decoration: none; }
+
+.item .date {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #fff;
+    margin:0;
+    text-shadow: black 0 0 0.2em
+}

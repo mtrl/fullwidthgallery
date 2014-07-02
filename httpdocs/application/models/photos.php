@@ -15,9 +15,11 @@ class Photos extends CI_Model {
         $dir = $this->config->config['photo_directory'];
         $photo_files = get_filenames($dir);
         foreach($photo_files as $photo_file) {
-            $photo = new Photo();
-            $photo->load($photo_file);
-            $this->photos[] = $photo;
+            if(strtolower(pathinfo($photo_file, PATHINFO_EXTENSION)) == "jpg") {
+                $photo = new Photo();
+                $photo->load($photo_file);
+                $this->photos[] = $photo;
+            }
         }
         $this->sort_photos();
         //$this->remove_photos_without_date();
