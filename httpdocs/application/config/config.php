@@ -4,8 +4,6 @@ $config['photo_directory_web'] = realpath(__DIR__. '/../..' . '/photos/web');
 $config['photo_directory_thumbnails'] = realpath(__DIR__. '/../..' . '/photos/thumbnails');
 
 $config['photo_directory_root_url'] = '/photos';
-$config['photo_directory_web_root_url'] = '/photos/web';
-$config['photo_directory_thumbnails_root_url'] = '/photos/thumbnails';
 $config['photo_thumbnail_height'] = '225';
 $config['photo_height'] = '1200';
 /*

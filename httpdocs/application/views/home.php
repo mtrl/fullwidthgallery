@@ -15,18 +15,24 @@
 <body>
 
 <div id="container">
+    <div class="loading">
+        <img src="/assets/img/loading.gif">
+        <noscript>JavaScript must be enabled in order to view this website</noscript>
+    </div>
+    <div class="gallery">
     <?php foreach($photos as $month => $photos): ?>
         <?php $i = 0; foreach($photos as $key => $photo): ?>
         <div class="item">
             <?php if ($i == 0): ?>
                 <p class="date"><?php echo date('F Y', strtotime($month)) ?></p>
             <?php endif; ?>
-            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->label ?>">
+            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->label ?>. <a href='<?php echo $photo->fullsize_url ?>' target='_blank'>Download fullsize</a>">
                 <img src="<?php echo $photo->thumbnail_url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
             </a>
         </div>
         <?php $i++;endforeach; ?>
-    <?php endforeach; ?>  
+    <?php endforeach; ?>
+    </div>
 </div>
 <!-- Page rendered in {elapsed_time} seconds -->
 </body>

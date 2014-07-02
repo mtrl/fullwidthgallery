@@ -12,13 +12,27 @@ h1 {
     margin: 0 10px;
 }
 
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.loading {
+    display: block;
+    width: 128px;
+    margin: 100px auto;
+    color: #fff;
+}
+
+.gallery {
+    visibility: hidden;
+}
 .item {
     display: block;
     float: left;
     position: relative;
     margin-bottom: -2px;
 }
-a { text-decoration: none; }
 
 .item .date {
     position: absolute;

@@ -8,6 +8,7 @@ class Photo extends CI_model {
     
     var $thumbnail_url;
     var $url;
+    var $fullsize_url;
     
     function __construct() {
         parent::__construct();
@@ -17,6 +18,7 @@ class Photo extends CI_model {
     function load($filename) {
         $this->filename = $filename;
         $this->path = $this->config->config['photo_directory'] . '/' . $filename;
+        $this->fullsize_url = $this->config->config['photo_directory_root_url'] . '/' . $filename;
         $this->load_exif_data();
         $this->resize_for_web();
         $this->create_thumbnail();

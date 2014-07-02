@@ -1,12 +1,21 @@
 var imagesWide;
     
 $(window).load(function() {
-    $(".fancybox").fancybox();
+    $(".fancybox").fancybox({
+        'titlePosition' : 'inside'
+    });
+    
     thumbnailsFillScreen();
     $(window).resize(function(){
        thumbnailsFillScreen();
     });
+    showGallery();
 });
+
+function showGallery() {
+    $('.loading').hide();
+    $('.gallery').css("visibility","visible").hide().fadeIn();
+}
 
 // Determine the number of images wide in order to optimise viewing on mobile devices
 function setNumberOfImagesWide() {
@@ -17,7 +26,7 @@ function setNumberOfImagesWide() {
         imagesWide = 3;
     } else if (screenWidth <= 1178) {
         imagesWide = 4;
-    }else {
+    } else {
         imagesWide = 5;
     }
 }
