@@ -19,13 +19,10 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->output->cache(1440);
+		//$this->output->cache(1440);
 		
 		$this->load->model('Photos');
 		$this->Photos->get_photos();
 		$this->load->view('home', array('photos' => $this->Photos->photos_by_month));
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

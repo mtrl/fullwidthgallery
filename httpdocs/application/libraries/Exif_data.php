@@ -47,13 +47,9 @@ class Exif_data{
 	       	$data["lat_decimal"] = $this->toDecimal($lat_degrees, $lat_minutes, $lat_seconds, $lat_hemi);
 	       	$data["long_decimal"] = $this->toDecimal($log_degrees, $log_minutes, $log_seconds, $log_hemi);
 	       		
-	    }
-	       
-	    else{
-		       
-			$data["lat_decimal"] = "null";
-		    $data["long_decimal"] = "null";
-		       
+	    } else {
+		$data["lat_decimal"] = "null";
+		$data["long_decimal"] = "null";
 	    }
 	       
 	    return $data;
