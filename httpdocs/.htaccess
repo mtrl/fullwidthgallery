@@ -1,0 +1,4 @@
+AuthUserFile /Users/mark/www/rosemary/passwd
+AuthType Basic
+AuthName "Rosemary gallery"
+Require valid-user
