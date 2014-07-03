@@ -38,10 +38,20 @@ class Photo extends CI_model {
             $age .= 'minus ';
         }
         if($diff->y > 0) {
-            $age .= $diff->format('%y years, ');
+            $age .= $diff->format('%y year');
+            if($diff->y != 1) {
+                $age .= "s";
+            }
         }
         if($diff->m > 0) {
-            $age .= $diff->format('%m months and ');
+            if($diff->y > 1) {
+                $age .= ", ";
+            }
+            $age .= $diff->format('%m month');
+            if($diff->m != 1) {
+                $age .= "s";
+            }
+            $age .= " and ";
         }
         // If minus, add a day
         if($diff->invert) {
