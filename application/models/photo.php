@@ -107,7 +107,8 @@ class Photo extends CI_model {
         $photo_dir = $this->config->config['photo_directory'] . '/' . $height;
         if($retina) {
             $file_array = explode(".", $file);
-            $target_file_name = $file_array[0] . '@2x' . '.' . $file_array[1];
+            //$target_file_name = $file_array[0] . '@2x' . '.' . $file_array[1];
+            $target_file_name = $file . "blah.jpg";
         } else {
             $target_file_name = $file;
         }
