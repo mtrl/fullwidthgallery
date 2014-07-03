@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     background: #000;
-        font-weight: 100;
+    font-weight: 100;
 }
 h1 {
     font-size: 24px;
@@ -22,24 +22,12 @@ a {
     display: block;
     text-align: center;
     color: #fff;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    margin:-125px auto 0 -125px;
-}
-
-.loading noscript {
-    margin-top: 270px;
-}
-
-.loading p {
-    margin-top: 260px;
+    text-align: center;
+    width: 100%;
+    margin:100px auto;
 }
 
 .loading img {
-    position: absolute;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
