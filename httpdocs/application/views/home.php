@@ -19,7 +19,9 @@
 <div id="container">
     <div class="loading">
         <img src="/assets/img/loading-rose.jpg">
-        <p>Loading</p>
+        <div class="text">
+            <p>Loading<span class="elipsis">...</span></p>
+        </div>
         <noscript>JavaScript must be enabled in order to view this gallery</noscript>
     </div>
     <div class="gallery">

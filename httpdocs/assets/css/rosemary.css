@@ -27,6 +27,17 @@ a {
     margin:100px auto;
 }
 
+.loading .text {
+    margin-top: 26px;
+    text-align: left;
+    width: 90px;
+    margin: 26px auto;
+}
+
+.loading p {
+    text-transform: uppercase;
+}
+
 .loading img {
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
