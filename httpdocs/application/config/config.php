@@ -6,6 +6,8 @@ $config['photo_directory_thumbnails'] = realpath(__DIR__. '/../..' . '/photos/th
 $config['photo_directory_root_url'] = '/photos';
 $config['photo_thumbnail_height'] = '225';
 $config['photo_height'] = '1200';
+
+$config['dob'] = '2013-08-22';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

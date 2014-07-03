@@ -5,6 +5,7 @@ class Photo extends CI_model {
     var $filename;
     var $exif;
     var $label;
+    var $age;
     
     var $thumbnail_url;
     var $url;
@@ -24,10 +25,40 @@ class Photo extends CI_model {
         //$this->create_retina_image();
         $this->create_thumbnail();
         $this->set_label();
+        $this->calculate_age();
+    }
+    
+    private function calculate_age() {
+        $age = "";
+        $dob = date_create($this->config->config['dob']);
+        $photo_date = date_create($this->exif['date_time']);
+        $diff = date_diff($dob, $photo_date);
+        if($diff->y > 0) {
+            $age .= $diff->format('%y years, ');
+        }
+        if($diff->m > 0) {
+            $age .= $diff->format('%m months');
+            if($diff->d > 0) {
+                $age .= " and ";
+            }
+        }
+        if($diff->d > 0) {
+            $age .= $diff->format('%d days');
+        }
+        $this->age = $age;
     }
     
     private function set_label() {
         $label = preg_replace('/\\.[^.\\s]{3,4}$/', '', $this->filename);
+        // Remove trailing number
+        do {
+            $n = substr($label, -1);
+            if(is_numeric($n)) {
+                $label = substr($label, 0, -1);
+            }
+        }
+        while(is_numeric($n));
+        substr($label,0,-1);
         $this->label = $label;
     }
     
@@ -67,7 +98,7 @@ class Photo extends CI_model {
             if($retina == true) {
                 $config['height'] = $height * 2;
             } else {
-                $config['height'] = $height * 2;
+                $config['height'] = $height;
             }
             $this->load->library('image_lib');
             $this->image_lib->initialize($config);
