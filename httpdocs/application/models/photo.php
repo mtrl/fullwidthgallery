@@ -21,7 +21,7 @@ class Photo extends CI_model {
         $this->fullsize_url = $this->config->config['photo_directory_root_url'] . '/' . $filename;
         $this->load_exif_data();
         $this->resize_for_web();
-        $this->create_retina_image();
+        //$this->create_retina_image();
         $this->create_thumbnail();
         $this->set_label();
     }
