@@ -81,7 +81,7 @@ function fitThumbnailRowToContainerWidth() {
 
 var loadingDotNumber = 4;
 var loadingDotCount = 0;
-var loadingDotSpeed = 250;
+var loadingDotSpeed = 400;
 function animateLoadingElipsis() {
     var dotText = "";
     for(i = 0; i < loadingDotCount; i = i + 1){
