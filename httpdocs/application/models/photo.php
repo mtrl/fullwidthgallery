@@ -46,7 +46,8 @@ class Photo extends CI_model {
     private function resize($file, $height, $retina = false) {
         $photo_dir = $this->config->config['photo_directory'] . '/' . $height;
         if($retina) {
-            $target_file_name = explode(".", $this->filename)[0] . '@2x' . '.' . explode(".",$this->filename)[1];
+            $file_array = explode(".", $file);
+            $target_file_name = $file_array[0] . '@2x' . '.' . $file_array[1];
         } else {
             $target_file_name = $file;
         }
