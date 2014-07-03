@@ -18,8 +18,8 @@
 
 <div id="container">
     <div class="loading">
-        <img src="/assets/img/loading.gif">
-        <noscript>JavaScript must be enabled in order to view this website</noscript>
+        <img src="/assets/img/loading-rose.png">
+        <noscript>JavaScript must be enabled in order to view this gallery</noscript>
     </div>
     <div class="gallery">
     <?php foreach($photos as $month => $photos): ?>

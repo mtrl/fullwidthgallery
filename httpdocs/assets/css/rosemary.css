@@ -19,10 +19,29 @@ a {
 
 .loading {
     display: block;
-    width: 128px;
-    margin: 100px auto;
+    text-align: center;
     color: #fff;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    margin:-125px 0 0 -125px;
 }
+
+.loading noscript {
+    margin-top: 260px;
+}
+
+.loading img {
+    position: absolute;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .gallery {
     visibility: hidden;

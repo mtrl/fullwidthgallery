@@ -28,7 +28,7 @@ $(window).load(function() {
     $(window).resize(function(){
        thumbnailsFillScreen();
     });
-    showGallery();
+    //showGallery();
 });
 
 function showGallery() {
