@@ -19,6 +19,7 @@
 <div id="container">
     <div class="loading">
         <img src="/assets/img/loading-rose.png">
+        <p>Loading</p>
         <noscript>JavaScript must be enabled in order to view this gallery</noscript>
     </div>
     <div class="gallery">

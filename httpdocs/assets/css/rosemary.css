@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     background: #000;
+        font-weight: 100;
 }
 h1 {
     font-size: 24px;
@@ -22,14 +23,18 @@ a {
     text-align: center;
     color: #fff;
     top: 50%;
-    position: absolute;
     left: 50%;
+    position: absolute;
     width: 250px;
     height: 250px;
-    margin:-125px 0 0 -125px;
+    margin:-125px auto 0 -125px;
 }
 
 .loading noscript {
+    margin-top: 270px;
+}
+
+.loading p {
     margin-top: 260px;
 }
 
