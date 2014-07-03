@@ -13,11 +13,13 @@ class Photos extends CI_Model {
         $this->load->model('photo');
                 
         $dir = $this->config->config['photo_directory'];
-        $photo_files = get_filenames($dir);
-        foreach($photo_files as $photo_file) {
-            if(strtolower(pathinfo($photo_file, PATHINFO_EXTENSION)) == "jpg") {
+        $photo_files = get_dir_file_info($dir);
+        foreach($photo_files as $file_name => $photo_info) {
+            //echo stristr($file_name, "jpg") . '<br>';
+            if(stristr($file_name, ".jpg")) {
+            //if(strtolower(pathinfo($photo_file, PATHINFO_EXTENSION)) == "jpg") {
                 $photo = new Photo();
-                $photo->load($photo_file);
+                $photo->load($file_name);
                 $this->photos[] = $photo;
             }
         }

@@ -21,6 +21,7 @@ class Photo extends CI_model {
         $this->fullsize_url = $this->config->config['photo_directory_root_url'] . '/' . $filename;
         $this->load_exif_data();
         $this->resize_for_web();
+        $this->create_retina_image();
         $this->create_thumbnail();
         $this->set_label();
     }
@@ -34,13 +35,23 @@ class Photo extends CI_model {
         $this->url = $this->resize($this->filename, $this->config->config['photo_height']);
     }
     
+    private function create_retina_image() {
+        $this->url = $this->resize($this->filename, $this->config->config['photo_height'], true);
+    }
+    
     private function create_thumbnail() {
         $this->thumbnail_url = $this->resize($this->filename, $this->config->config['photo_thumbnail_height']);
     }
     
-    private function resize($file, $height) {
+    private function resize($file, $height, $retina = false) {
         $photo_dir = $this->config->config['photo_directory'] . '/' . $height;
-        $target_file = $photo_dir . '/' . $file;
+        if($retina) {
+            $target_file_name = explode(".", $this->filename)[0] . '@2x' . '.' . explode(".",$this->filename)[1];
+        } else {
+            $target_file_name = $file;
+        }
+        $target_file = $photo_dir . '/' . $target_file_name;
+        
         if(!file_exists($photo_dir)) {
             mkdir($photo_dir);
         }
@@ -52,7 +63,11 @@ class Photo extends CI_model {
             $config['new_image'] = $target_file;
             $config['maintain_ratio'] = TRUE;
             $config['width']	= -1;
-            $config['height']	= $height;
+            if($retina == true) {
+                $config['height'] = $height * 2;
+            } else {
+                $config['height'] = $height * 2;
+            }
             $this->load->library('image_lib');
             $this->image_lib->initialize($config);
             $this->image_lib->resize();

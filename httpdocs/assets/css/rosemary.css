@@ -42,3 +42,7 @@ a {
     margin:0;
     text-shadow: black 0 0 0.2em
 }
+
+.mfp-title {
+    text-align: center;
+}
