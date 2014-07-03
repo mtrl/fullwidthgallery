@@ -33,17 +33,23 @@ class Photo extends CI_model {
         $dob = date_create($this->config->config['dob']);
         $photo_date = date_create($this->exif['date_time']);
         $diff = date_diff($dob, $photo_date);
+        // Less than zero add a minus
+        if($diff->invert) {
+            $age .= 'minus ';
+        }
         if($diff->y > 0) {
             $age .= $diff->format('%y years, ');
         }
         if($diff->m > 0) {
-            $age .= $diff->format('%m months');
-            if($diff->d > 0) {
-                $age .= " and ";
-            }
+            $age .= $diff->format('%m months and ');
         }
-        if($diff->d > 0) {
-            $age .= $diff->format('%d days');
+        // If minus, add a day
+        if($diff->invert) {
+            ++$diff->d;
+        }
+        $age .= $diff->format('%d day');
+        if($diff->d != 1) {
+            $age .= 's';
         }
         $this->age = $age;
     }
