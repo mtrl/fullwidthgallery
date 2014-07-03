@@ -1,3 +1,5 @@
 httpdocs/photos/*
 httpdocs/application/cache/*
 !httpdocs/photos/index.html
+httpdocs/.htaccess
+passwd
