@@ -31,7 +31,7 @@
             <?php if ($i == 0): ?>
                 <p class="date"><?php echo date('F Y', strtotime($month)) ?></p>
             <?php endif; ?>
-            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->label ?> - <?php echo $photo->age ?> old.<br><a href='<?php echo $photo->fullsize_url ?>' target='_blank'>Full size</a>">
+            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo $photo->label ?><br><?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br><a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'>Full size</a>">
                 <img src="<?php echo $photo->thumbnail_url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
             </a>
         </div>

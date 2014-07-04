@@ -69,4 +69,10 @@ a {
 
 .mfp-title {
     text-align: center;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.mfp-title .fullsize {
+    font-size: 11px;
 }
