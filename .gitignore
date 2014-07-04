@@ -5,3 +5,4 @@ httpdocs/.htaccess
 httpdocs/application/config/config.php
 httpdocs/assets/img/loading-rose.jpg
 passwd
+httpdocs/ht.access
