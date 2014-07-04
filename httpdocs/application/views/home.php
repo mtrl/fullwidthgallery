@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/assets/css/rosemary.css" type="text/css" media="screen" />
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.magnific-popup.min.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
