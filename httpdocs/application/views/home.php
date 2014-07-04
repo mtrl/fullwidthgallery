@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Image gallery</title>
+	<title><?php echo $config['gallery_title'] ?></title>
         <link rel="stylesheet" href="/assets/css/reset.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/assets/css/rosemary.css" type="text/css" media="screen" />

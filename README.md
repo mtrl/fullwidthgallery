@@ -3,7 +3,7 @@ fullwidthgallery
 
 A PHP image gallery for baby or child photos. The age of the child when each photo is taken is shown in the gallery.
 
-Thumbnails and web sized images are auto generated.
+Thumbnails and web sized images are auto generated and cached.
 
 The gallery fills each row of the gallery to fill the full screen width.
 
