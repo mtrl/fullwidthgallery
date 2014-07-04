@@ -33,6 +33,7 @@ class Photo extends CI_model {
         $dob = date_create($this->config->config['dob']);
         $photo_date = date_create($this->exif['date_time']);
         $diff = date_diff($dob, $photo_date);
+
         // Less than zero add a minus
         if($diff->invert) {
             $age .= 'minus ';

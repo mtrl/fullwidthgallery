@@ -12,7 +12,7 @@ $config['photo_directory_root_url'] = '/photos';
 $config['photo_thumbnail_height'] = '225';
 $config['photo_height'] = '1200';
 
-$config['dob'] = '1981-03-20';
+$config['dob'] = '2013-08-22';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
