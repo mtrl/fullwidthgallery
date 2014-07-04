@@ -1,15 +1,15 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['gallery_title'] = "Rosemary gallery";
+$config['gallery_title'] = "Image gallery";
 
-$config['loading_image'] = "/assets/img/loading-rose.jpg";
+$config['loading_image'] = "/assets/img/loading.jpg";
 
 $config['photo_directory'] = realpath(__DIR__. '/../..' . '/photos');
 $config['photo_directory_root_url'] = '/photos';
 $config['photo_thumbnail_height'] = '225';
 $config['photo_height'] = '1200';
 
-$config['dob'] = '1981-03-20';
+$config['dob'] = '2013-08-22';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

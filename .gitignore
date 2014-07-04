@@ -1,5 +1,7 @@
 httpdocs/photos/*
-httpdocs/application/cache/*
 !httpdocs/photos/index.html
+httpdocs/application/cache/*
 httpdocs/.htaccess
+httpdocs/application/config/config.php
+httpdocs/assets/img/loading-rose.jpg
 passwd
