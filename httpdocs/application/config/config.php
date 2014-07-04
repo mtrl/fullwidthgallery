@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['gallery_title'] = "Rosemary gallery";
+$config['gallery_title'] = "Rosemary Gallery";
 
 // Amount of time to cache the gallery page for in minutes
 $config['cache_period'] = "0";
