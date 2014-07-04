@@ -18,7 +18,7 @@
 
 <div id="container">
     <div class="loading">
-        <img src="/assets/img/loading-rose-2.jpg">
+        <img src="<?php echo $config['loading_image'] ?>">
         <div class="text">
             <p>Loading<span class="elipsis">...</span></p>
         </div>
