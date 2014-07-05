@@ -56,7 +56,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = '/Users/mark/www/rosemary/system';
+	$system_path = realpath(__DIR__ . '/../system');
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +72,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = '/Users/mark/www/rosemary/application';
+	$application_folder = realpath(__DIR__ . '/../application');
 
 /*
  * --------------------------------------------------------------------
