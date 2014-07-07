@@ -56,7 +56,7 @@ function thumbnailsFillScreen() {
     setNumberOfImagesWide();
     var images = $('#container');
     var itemCount = images.find('.item').length;
-    for(i = imagesWide; i <= itemCount; i = i + imagesWide) {
+    for(i = imagesWide; i <= (itemCount + 2); i = i + imagesWide) {
         if(imagesWide > itemCount) {
             imagesWide = itemCount;
         }
