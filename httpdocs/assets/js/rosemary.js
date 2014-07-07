@@ -74,7 +74,7 @@ function fitThumbnailRowToContainerWidth() {
         });
         var heightMultiplier = containerWidth / widthOfAllItems;
         $(this).find('img').each(function(){
-           $(this).height(Math.floor($(this).height() * heightMultiplier) - 1); 
+           $(this).height(Math.ceil($(this).height() * heightMultiplier)); 
         });
     });
 }
