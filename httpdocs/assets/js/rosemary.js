@@ -79,7 +79,7 @@ function fitThumbnailRowToContainerWidth() {
     });
 }
 
-var loadingDotNumber = 3;
+var loadingDotNumber = 4;
 var loadingDotCount = 0;
 var loadingDotSpeed = 400;
 function animateLoadingElipsis() {
