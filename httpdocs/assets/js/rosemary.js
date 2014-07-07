@@ -47,7 +47,7 @@ function setNumberOfImagesWide() {
     } else if (screenWidth <= 1178) {
         imagesWide = 4;
     } else {
-        imagesWide = 5;
+        imagesWide = 4;
     }
 }
 
@@ -79,7 +79,7 @@ function fitThumbnailRowToContainerWidth() {
     });
 }
 
-var loadingDotNumber = 4;
+var loadingDotNumber = 3;
 var loadingDotCount = 0;
 var loadingDotSpeed = 400;
 function animateLoadingElipsis() {
