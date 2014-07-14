@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/assets/css/rosemary.css" type="text/css" media="screen" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.lazyload.min.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.magnific-popup.min.js"></script>
         <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
         <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
@@ -32,7 +33,7 @@
                 <p class="date"><?php echo date('F Y', strtotime($month)) ?></p>
             <?php endif; ?>
             <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo $photo->label ?><br><?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br><a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'>Full size</a>">
-                <img src="<?php echo $photo->thumbnail_url ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
+                <img class="lazy" data-original="<?php echo $photo->thumbnail_url ?>" width="<?php echo $photo->thumbnail_width ?>"  height="<?php echo $photo->thumbnail_height ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
             </a>
         </div>
         <?php $i++;endforeach; ?>

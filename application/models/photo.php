@@ -11,6 +11,10 @@ class Photo extends CI_model {
     var $url;
     var $fullsize_url;
     
+    // Dimensions
+    var $thumbnail_width;
+    var $thumbnail_height;
+    
     function __construct() {
         parent::__construct();
         $this->load->library('image_lib');
@@ -89,6 +93,14 @@ class Photo extends CI_model {
     
     private function create_thumbnail() {
         $this->thumbnail_url = $this->resize($this->filename, $this->config->config['photo_thumbnail_height']);
+        // Load dimensions
+        $this->load_image_dimensions($this->config->config['photo_directory'] . '/' . $this->config->config['photo_thumbnail_height'] . '/' . $this->filename);
+    }
+    
+    private function load_image_dimensions($file_path) {
+        $dimensions = getimagesize($file_path);
+        $this->thumbnail_width = $dimensions[0];
+        $this->thumbnail_height = $dimensions[1];
     }
     
     private function resize($file, $height, $retina = false) {
