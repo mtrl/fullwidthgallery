@@ -1,27 +1,43 @@
 $(document).ready(function(){
     animateLoadingElipsis();
-    
-    $("img.lazy").lazyload();
-    
-    thumbnailsFillScreen();
-    $(window).resize(function(){
-       thumbnailsFillScreen();
-    });
-    
+    showGallery();
+});
+
+
+function activateMagnific() {
     $('#container').magnificPopup({
         type:'image',
         delegate: 'a',
         gallery:{
             enabled:true
-            },
+        },
+        callbacks: {
+            open: function() {
+                // Bind to nore options links
+                activateMoreOptions();
+            }
+        }
     });
-    
-    showGallery();
-});
+}
 
 function showGallery() {
+    $("img.lazy").lazyload();
+    activateMagnific();
+    thumbnailsFillScreen();
+    
     $('.loading').hide();
     $('.gallery').css("visibility","visible").hide().fadeIn();
+}
+
+function activateMoreOptions() {
+    event.preventDefault();
+    $('.show-more-options').click(function() {
+        $(this).siblings('.more-options').toggle();
+        window.location.hash = '#more-options';
+        $(this).siblings('.more-options').find('.direct-link').on('click', function() {
+            $(this).select();
+        });
+    });
 }
 
 // Determine the number of images wide in order to optimise viewing on mobile devices
@@ -50,6 +66,11 @@ function thumbnailsFillScreen() {
         images.find('.item').slice(i - imagesWide, i).wrapAll('<div class="row">');
     }
     fitThumbnailRowToContainerWidth();
+    // Resize if the window is resized
+    $(window).resize(function(){
+       thumbnailsFillScreen();
+    });
+
 }
 
 function fitThumbnailRowToContainerWidth() {

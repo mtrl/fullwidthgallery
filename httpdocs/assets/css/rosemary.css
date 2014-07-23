@@ -86,6 +86,16 @@ a {
     color: #cccccc;
 }
 
-.mfp-title .fullsize {
+.show-more-options {
     font-size: 11px;
+}
+
+.more-options {
+    display: none;
+    background: #333;
+    padding: 10px 0;
+}
+
+.direct-link {
+    width: 300px;
 }
