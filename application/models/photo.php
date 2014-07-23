@@ -40,7 +40,7 @@ class Photo extends CI_model {
     
     public function get_direct_link($get_full_url = false) {
         if($get_full_url) {
-            return $this->config->config['root_url'] . $this->direct_link;
+            return $this->config->config['root_url'] . '#' . $this->direct_link;
         } else {
             return $this->direct_link;
         }
