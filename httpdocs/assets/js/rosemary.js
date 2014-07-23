@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 function activateMagnific() {
     $('#container').magnificPopup({
+        preloader: true,
         type:'image',
         delegate: 'a',
         gallery:{
@@ -15,6 +16,14 @@ function activateMagnific() {
             open: function() {
                 // Bind to nore options links
                 activateMoreOptions();
+                // In this context the 'this' item isnt a jQuery object so we have to create one
+                var anchorHash = $(this.st.el.context).attr('id');
+                window.scrollTo(0,0);
+                window.location.hash = anchorHash;
+            },
+            close: function() {
+                event.preventDefault();
+                window.location.hash = '';
             }
         }
     });
@@ -25,12 +34,19 @@ function showGallery() {
     activateMagnific();
     thumbnailsFillScreen();
     
+    loadDirectLink();
+    
     $('.loading').hide();
     $('.gallery').css("visibility","visible").hide().fadeIn();
 }
 
+function loadDirectLink() {
+    if(window.location.hash) {
+        $(window.location.hash).click();
+    }
+}
+
 function activateMoreOptions() {
-    event.preventDefault();
     $('.show-more-options').click(function() {
         $(this).siblings('.more-options').toggle();
         window.location.hash = '#more-options';

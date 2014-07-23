@@ -33,7 +33,7 @@
             <?php if ($i == 0): ?>
                 <p class="date"><?php echo date('F Y', strtotime($month)) ?></p>
             <?php endif; ?>
-            <a id="<?php echo $photo->direct_link ?>" class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="
+            <a id="<?php echo $photo->get_direct_link() ?>" rel="group" href="<?php echo $photo->url ?>" title="
 		    <?php echo $photo->label ?><br>
 		    <?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br>
 		    <a href='#' class='show-more-options'>More options</a>

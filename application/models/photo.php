@@ -11,7 +11,7 @@ class Photo extends CI_model {
     var $url;
     var $fullsize_url;
     
-    var $direct_link;
+    private $direct_link;
     
     // Dimensions
     var $thumbnail_width;
@@ -35,7 +35,10 @@ class Photo extends CI_model {
     }
     
     private function set_direct_link() {
-        $this->direct_link = urlencode($this->filename);
+        $this->direct_link = strtolower(
+            str_replace(array('+'), '-',
+            str_replace(array(',', '.', 'jpg','JPG'), '',
+            urlencode($this->filename))));
     }
     
     public function get_direct_link($get_full_url = false) {
