@@ -5,6 +5,8 @@ $config['gallery_title'] = "Image gallery";
 // Amount of time to cache the gallery page for in minutes
 $config['cache_period'] = "60";
 
+$config['root_url'] = "http://rosemary.mamp/";
+
 $config['loading_image'] = "/assets/img/loading.jpg";
 
 $config['photo_directory'] = realpath(__DIR__. '/../..' . '/photos');

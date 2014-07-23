@@ -32,7 +32,7 @@
             <?php if ($i == 0): ?>
                 <p class="date"><?php echo date('F Y', strtotime($month)) ?></p>
             <?php endif; ?>
-            <a class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo $photo->label ?><br><?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br><a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'>Full size</a>">
+            <a id="<?php echo $photo->direct_link ?>" class="fancybox" rel="group" href="<?php echo $photo->url ?>" title="<?php echo $photo->label ?><br><?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br><a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'>Full size</a> Direct link: <input class='direct-link' value='<?php echo $photo->get_direct_link(true) ?>'>">
                 <img class="lazy" data-original="<?php echo $photo->thumbnail_url ?>" width="<?php echo $photo->thumbnail_width ?>"  height="<?php echo $photo->thumbnail_height ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
             </a>
         </div>

@@ -1,5 +1,3 @@
-var imagesWide;
-
 $(document).ready(function(){
     animateLoadingElipsis();
     
