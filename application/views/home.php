@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/assets/min/all.css" type="text/css" media="screen" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	    
-	<script type="text/javascript" src="/assets/js/ZeroClipboard.min.js"></script>
+	<script type="text/javascript" src="/assets/js/zeroclipboard/ZeroClipboard.min.js"></script>
         <script type="text/javascript" src="/assets/min/all.js"></script>
 </head>
 <body>
