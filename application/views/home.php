@@ -14,6 +14,7 @@
         <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.lazyload.min.js"></script>
         <script type="text/javascript" src="/assets/js/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="/assets/js/ZeroClipboard.min.js"></script>
         <script type="text/javascript" src="/assets/js/rosemary.js"></script>
 </head>
 <body>
@@ -35,14 +36,13 @@
             <?php endif; ?>
             <a id="<?php echo $photo->get_direct_link() ?>" rel="group" href="<?php echo $photo->url ?>" title="
 		    <?php echo $photo->label ?><br>
-		    <?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br>
+		    <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->age ?> old<br>
 		    <a href='#' class='show-more-options'>More options</a>
 		    <div class='more-options'>
 			<p>
-			    <a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'>Download full size image</a><a  name='more-options'>&nbsp;</a>
-			</p>
-			<p>
-			    Direct link: <input class='direct-link' value='<?php echo $photo->get_direct_link(true) ?>'>
+			    <span class='hash'>#<?php echo $photo->get_direct_link() ?></span>
+			    <a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'><img src='assets/img/icon_download.png' /> Download full size</a><a name='more-options'>&nbsp;&nbsp;</a>
+			    <a href='#' id='copy-button' data-clipboard-text='<?php echo $photo->get_direct_link(true) ?>'><img src='assets/img/icon_copy.png'> Copy link</button>
 			</p>
 		    </div>
 	    ">
