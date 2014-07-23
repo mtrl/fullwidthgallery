@@ -35,10 +35,10 @@ class Photo extends CI_model {
     }
     
     private function set_direct_link() {
-        $this->direct_link = strtolower(
+        $this->direct_link = 
             str_replace(array('+'), '-',
-            str_replace(array(',', '.', 'jpg','JPG'), '',
-            urlencode($this->filename))));
+            str_replace(array(',', '.', 'jpg'), '',
+            urlencode(strtolower($this->filename))));
     }
     
     public function get_direct_link($get_full_url = false) {
