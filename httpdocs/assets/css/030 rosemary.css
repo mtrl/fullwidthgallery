@@ -101,6 +101,10 @@ a {
     text-decoration: none;
 }
 
+.more-options .hash {
+    display: none;
+}
+
 .more-options a img {
     margin-right: 5px;
 }

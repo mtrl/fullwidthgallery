@@ -41,6 +41,9 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
+$route['assets/min/all.css'] = 'min/css';
+$route['assets/min/all.js'] = 'min/js';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
