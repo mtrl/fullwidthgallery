@@ -36,7 +36,7 @@
             <?php endif; ?>
             <a id="<?php echo $photo->get_direct_link() ?>" rel="group" href="<?php echo $photo->url ?>" title="
 		    <?php echo $photo->label ?><br>
-		    <?php echo $photo->age ?> old - <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?><br>
+		    <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->age ?> old<br>
 		    <a href='#' class='show-more-options'>More options</a>
 		    <div class='more-options'>
 			<p>
