@@ -40,6 +40,7 @@
 		    <a href='#' class='show-more-options'>More options</a>
 		    <div class='more-options'>
 			<p>
+			    <span class='hash'>#<?php echo $photo->get_direct_link() ?></span>
 			    <a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'><img src='assets/img/icon_download.png' /> Download full size</a><a name='more-options'>&nbsp;&nbsp;</a>
 			    <a href='#' id='copy-button' data-clipboard-text='<?php echo $photo->get_direct_link(true) ?>'><img src='assets/img/icon_copy.png'> Copy link</button>
 			</p>

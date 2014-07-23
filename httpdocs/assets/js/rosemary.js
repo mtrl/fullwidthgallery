@@ -16,10 +16,9 @@ function activateMagnific() {
             open: function() {
                 // Bind to nore options links
                 activateMoreOptions();
-                // In this context the 'this' item isnt a jQuery object so we have to create one
+                
                 var anchorHash = $(this.st.el.context).attr('id');
-                window.scrollTo(0,0);
-                window.location.hash = anchorHash;
+                updateAnchorHash(anchorHash);
                 
                 // Activate copy to clipboard functionality
                 var client = new ZeroClipboard( document.getElementById('copy-button') );
@@ -33,9 +32,18 @@ function activateMagnific() {
             close: function() {
                 event.preventDefault();
                 window.location.hash = '';
+            },
+            change: function() {
+                var anchorHash = $(this.content[0].innerHTML).find('.hash').text();
+                updateAnchorHash(anchorHash);
             }
         }
     });
+}
+
+function updateAnchorHash(anchorHash) {
+        window.scrollTo(0,0);
+        window.location.hash = anchorHash;
 }
 
 function showGallery() {
