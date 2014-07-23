@@ -20,6 +20,15 @@ function activateMagnific() {
                 var anchorHash = $(this.st.el.context).attr('id');
                 window.scrollTo(0,0);
                 window.location.hash = anchorHash;
+                
+                // Activate copy to clipboard functionality
+                var client = new ZeroClipboard( document.getElementById('copy-button') );
+                client.on( "ready", function( readyEvent ) {
+                  client.on( "aftercopy", function( event ) {
+                    event.target.style.display = "none";
+                    alert("Copied link to clipboard: " + event.data["text/plain"] );
+                  } );
+                } );   
             },
             close: function() {
                 event.preventDefault();

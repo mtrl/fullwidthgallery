@@ -87,13 +87,22 @@ a {
 }
 
 .show-more-options {
-    font-size: 11px;
+    font-size: 12px;
+    display: none;
 }
 
 .more-options {
-    display: none;
-    background: #333;
-    padding: 10px 0;
+    display: block;
+    text-align: center;
+}
+
+.more-options a {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+.more-options a img {
+    margin-right: 5px;
 }
 
 .direct-link {
