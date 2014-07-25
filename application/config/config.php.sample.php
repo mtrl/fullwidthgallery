@@ -2,7 +2,7 @@
 
 $config['gallery_title'] = "Rosemary Gallery";
 
-// Amount of time to cache the gallery page for in minutes
+// Amount of time to cache the gallery page for in minutes.
 $config['cache_period'] = "0";
 
 $config['root_url'] = "http://rosemary.mamp/";
