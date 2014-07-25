@@ -1,20 +1,20 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['gallery_title'] = "Image gallery";
+$config['gallery_title'] = "Rosemary Gallery";
 
 // Amount of time to cache the gallery page for in minutes
-$config['cache_period'] = "60";
+$config['cache_period'] = "0";
 
 $config['root_url'] = "http://rosemary.mamp/";
 
-$config['loading_image'] = "/assets/img/loading.jpg";
+$config['loading_image'] = "/assets/img/loading-rose.jpg";
 
-$config['photo_directory'] = realpath(__DIR__. '/../..' . '/photos');
+$config['photo_directory'] = realpath(__DIR__ . '/../../httpdocs/photos');
 $config['photo_directory_root_url'] = '/photos';
-$config['photo_thumbnail_height'] = '225';
+$config['photo_thumbnail_height'] = '350';
 $config['photo_height'] = '1200';
 
-$config['dob'] = '2013-01-01';
+$config['dob'] = '2013-08-22';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
