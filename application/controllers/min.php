@@ -3,6 +3,8 @@
 class Min extends CI_Controller {
 	public function css()
 	{
+		$this->output->cache($this->config->config['cache_period']);
+		
 		$this->load->driver('minify');
 		$css = $this->minify->combine_directory('assets/css/');
 		$this->output->set_content_type('text/css')->set_output($css);
@@ -10,6 +12,8 @@ class Min extends CI_Controller {
 	
 	public function js()
 	{
+		$this->output->cache($this->config->config['cache_period']);
+		
 		$this->load->driver('minify');
 		$js = $this->minify->combine_directory('assets/js/', array('ZeroClipboard.swf'));
 		$this->output->set_content_type('application/javascript')->set_output($js);
