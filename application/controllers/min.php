@@ -17,6 +17,5 @@ class Min extends CI_Controller {
 		$this->load->driver('minify');
 		$js = $this->minify->combine_directory('assets/js/', array('ZeroClipboard.swf'));
 		$this->output->set_content_type('application/javascript')->set_output($js);
-				
 	}
 }
