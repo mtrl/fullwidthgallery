@@ -6,11 +6,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
-        <link rel="stylesheet" href="/assets/min/all.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/assets/css/min.css" type="text/css" media="screen" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	    
-	<script type="text/javascript" src="/assets/js/zeroclipboard/ZeroClipboard.min.js"></script>
-        <script type="text/javascript" src="/assets/min/all.js"></script>
+        <script type="text/javascript" src="/assets/js/min.js"></script>
 </head>
 <body>
 
