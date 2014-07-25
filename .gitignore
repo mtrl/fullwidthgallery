@@ -7,4 +7,5 @@ httpdocs/assets/img/loading-rose.jpg
 passwd
 httpdocs/ht.access
 Rosemary.komodoproject
+scripts/clear-prod-cache.sh
 .DS_Store
