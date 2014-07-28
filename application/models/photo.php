@@ -27,11 +27,13 @@ class Photo extends CI_model {
         $this->path = $this->config->config['photo_directory'] . '/' . $filename;
         $this->fullsize_url = $this->config->config['photo_directory_root_url'] . '/' . $filename;
         $this->load_exif_data();
-        $this->resize_for_web();
         $this->create_thumbnail();
         $this->set_label();
         $this->calculate_age();
         $this->set_direct_link();
+        if(stristr($this->filename, ".jpg")) {
+            $this->resize_for_web();
+        }
     }
     
     private function set_direct_link() {
@@ -109,7 +111,19 @@ class Photo extends CI_model {
     }
     
     private function create_thumbnail() {
-        $this->thumbnail_url = $this->resize($this->filename, $this->config->config['photo_thumbnail_height']);
+        $thumbnail_height = $this->config->config['photo_thumbnail_height'];
+        $target_file = $this->config->config['photo_directory'] . '/' . $thumbnail_height . '/' . $this->filename;
+        if(stristr($this->filename, ".jpg")) {
+            $this->thumbnail_url = $this->resize($this->filename, $thumbnail_height);
+        }
+        // Create video thumbnail
+        elseif(stristr($this->filename, ".mp4") && !file_exists($target_file)) {
+            //$this->thumbnail_url = $this->create_video_thumbnail($this->filename, $this->config->config['photo_thumbnail_height']);
+            //echo "ffmpeg -y -i '" . $this->path . "' -ss 10 -vframes 1 thumb.jpg;convert thumb.jpg -resize 400 '" . $target_file . ".jpg'";
+            echo exec("/usr/local/bin/ffmpeg -y -i '" . $this->path . "' -ss 10 -vframes 1 thumb.jpg;/usr/local/bin/convert thumb.jpg -resize 400 '" . $target_file . ".jpg' 2>&1", $output);
+            //print_r($output);
+            //echo $target_file;
+        }
         // Load dimensions
         $this->load_image_dimensions($this->config->config['photo_directory'] . '/' . $this->config->config['photo_thumbnail_height'] . '/' . $this->filename);
     }
