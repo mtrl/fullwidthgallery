@@ -3,8 +3,8 @@ fullwidthgallery
 
 A PHP image gallery for baby or child photos. The age of the child when each photo is taken is shown in the gallery.
 
-![gallery](https://raw.githubusercontent.com/mtrl/fullwidthgallery/master/screenshots/gallery.jpg)
-![gallery-lightbox](https://raw.githubusercontent.com/mtrl/fullwidthgallery/master/screenshots/gallery-lightbox.jpg)
+![gallery](https://raw.githubusercontent.com/mtrl/fullwidthgallery/master/images/gallery.jpg)
+![gallery-lightbox](https://raw.githubusercontent.com/mtrl/fullwidthgallery/master/images/gallery-lightbox.jpg)
 
 Thumbnails and web sized images are auto generated and cached.
 
