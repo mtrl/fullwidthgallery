@@ -65,15 +65,15 @@ class Photo extends CI_model {
                 $age .= "s";
             }
         }
-        if($diff->m > 0) {
-            if($diff->y > 1) {
+        if($diff->m > 0 || $diff->y > 0) {
+            if($diff->y > 0) {
                 $age .= ", ";
             }
             $age .= $diff->format('%m month');
             if($diff->m != 1) {
                 $age .= "s";
             }
-            $age .= " and ";
+            $age .= ", ";
         }
         // If minus, add a day
         if($diff->invert) {
@@ -83,6 +83,9 @@ class Photo extends CI_model {
         if($diff->d != 1) {
             $age .= 's';
         }
+        $age .= ", ";
+        // Add hours, mins and seconds
+        $age .= " " . $diff->h . " hours and " . $diff->i . " minutes";
         $this->age = $age;
     }
     
