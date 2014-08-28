@@ -1,27 +1,27 @@
 <?php
 class Photo extends CI_model {
-    
+
     var $path;
     var $filename;
     var $exif;
     var $label;
     var $age;
-    
+
     var $thumbnail_url;
     var $url;
     var $fullsize_url;
-    
+
     private $direct_link;
-    
+
     // Dimensions
     var $thumbnail_width;
     var $thumbnail_height;
-    
+
     function __construct() {
         parent::__construct();
         $this->load->library('image_lib');
     }
-    
+
     function load($filename) {
         $this->filename = $filename;
         $this->path = $this->config->config['photo_directory'] . '/' . $filename;
@@ -33,14 +33,14 @@ class Photo extends CI_model {
         $this->calculate_age();
         $this->set_direct_link();
     }
-    
+
     private function set_direct_link() {
-        $this->direct_link = 
+        $this->direct_link =
             str_replace(array('+'), '-',
             str_replace(array(',', '.', 'jpg'), '',
             urlencode(strtolower($this->filename))));
     }
-    
+
     public function get_direct_link($get_full_url = false) {
         if($get_full_url) {
             return $this->config->config['root_url'] . '#' . $this->direct_link;
@@ -48,7 +48,7 @@ class Photo extends CI_model {
             return $this->direct_link;
         }
     }
-    
+
     private function calculate_age() {
         $age = "";
         $dob = date_create($this->config->config['dob']);
@@ -88,7 +88,7 @@ class Photo extends CI_model {
         $age .= " " . $diff->h . " hours and " . $diff->i . " minutes";
         $this->age = $age;
     }
-    
+
     private function set_label() {
         $label = preg_replace('/\\.[^.\\s]{3,4}$/', '', $this->filename);
         // Remove trailing number
@@ -102,27 +102,27 @@ class Photo extends CI_model {
         substr($label,0,-1);
         $this->label = $label;
     }
-    
+
     private function resize_for_web() {
         $this->url = $this->resize($this->filename, $this->config->config['photo_height']);
     }
-    
+
     private function create_retina_image() {
         $this->url = $this->resize($this->filename, $this->config->config['photo_height'], true);
     }
-    
+
     private function create_thumbnail() {
         $this->thumbnail_url = $this->resize($this->filename, $this->config->config['photo_thumbnail_height']);
         // Load dimensions
         $this->load_image_dimensions($this->config->config['photo_directory'] . '/' . $this->config->config['photo_thumbnail_height'] . '/' . $this->filename);
     }
-    
+
     private function load_image_dimensions($file_path) {
         $dimensions = getimagesize($file_path);
         $this->thumbnail_width = $dimensions[0];
         $this->thumbnail_height = $dimensions[1];
     }
-    
+
     private function resize($file, $height, $retina = false) {
         $photo_dir = $this->config->config['photo_directory'] . '/' . $height;
         if($retina) {
@@ -133,7 +133,7 @@ class Photo extends CI_model {
             $target_file_name = $file;
         }
         $target_file = $photo_dir . '/' . $target_file_name;
-        
+
         if(!file_exists($photo_dir)) {
             mkdir($photo_dir);
         }
@@ -156,7 +156,7 @@ class Photo extends CI_model {
         }
         return $this->config->config['photo_directory_root_url'] . '/' . $height . '/' . $file;
     }
-    
+
     private function load_exif_data() {
         $this->load->library('Exif_data');
         try {
@@ -166,7 +166,7 @@ class Photo extends CI_model {
         } catch (Exception $ex) {
             echo $ex->getMessage();
         }
-        
+
         try {
             foreach($this->exif_data->get_exif_info($this->path) as $key => $value) {
                 $this->exif[$key] = $value;
@@ -174,5 +174,18 @@ class Photo extends CI_model {
         } catch (Exception $ex) {
             echo $ex->getMessage();
         }
+    }
+    
+    public function get_photo_title() {
+        $title  = $this->label . "<br>";
+		$title  .= date('jS F Y', strtotime($this->exif['date_time'])) . " - " . $this->age  . " old ";
+		$title  .= "<a href='#' class='show-more-options'>More options</a>";
+		$title  .= "<div class='more-options'>";
+		$title  .= "<p>";
+	    $title  .= "<span class='hash'>#" . $this->get_direct_link() . "</span>";
+		$title  .= "<a class='fullsize' href='" . $this->fullsize_url . "' target='_blank'><img src='assets/img/icon_download.png' /> Download full size</a><a name='more-options'>&nbsp;&nbsp;</a>";
+		$title  .= "</p>";
+		$title  .= "</div>";
+		return htmlentities($title);
     }
 }

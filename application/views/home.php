@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
         <link rel="stylesheet" href="assets/css/min.css" type="text/css" media="screen" />
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'> -->
 	    
         <script type="text/javascript" src="assets/js/min.js"></script>
 </head>
@@ -28,18 +28,7 @@
             <?php if ($i == 0): ?>
                 <p class="date"><?php echo date('F Y', strtotime($month)) ?></p>
             <?php endif; ?>
-            <a id="<?php echo $photo->get_direct_link() ?>" rel="group" href="<?php echo $photo->url ?>" title="
-		    <?php echo $photo->label ?><br>
-		    <?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?> - <?php echo $photo->age ?> old<br>
-		    <a href='#' class='show-more-options'>More options</a>
-		    <div class='more-options'>
-			<p>
-			    <span class='hash'>#<?php echo $photo->get_direct_link() ?></span>
-			    <a class='fullsize' href='<?php echo $photo->fullsize_url ?>' target='_blank'><img src='assets/img/icon_download.png' /> Download full size</a><a name='more-options'>&nbsp;&nbsp;</a>
-			    <!-- <a href='#' id='copy-button' data-clipboard-text='<?php echo $photo->get_direct_link(true) ?>'><img src='assets/img/icon_copy.png'> Copy link</button> -->
-			</p>
-		    </div>
-	    ">
+            <a id="<?php echo $photo->get_direct_link() ?>" rel="group" href="<?php echo $photo->url ?>" title="<?php echo $photo->get_photo_title() ?>">
                 <img class="lazy" data-original="<?php echo $photo->thumbnail_url ?>" width="<?php echo $photo->thumbnail_width ?>"  height="<?php echo $photo->thumbnail_height ?>" title="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>"  alt="<?php echo date('jS F Y', strtotime($photo->exif['date_time'])) ?>" />
             </a>
         </div>
