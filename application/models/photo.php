@@ -178,7 +178,10 @@ class Photo extends CI_model {
     
     public function get_photo_title() {
         $title  = $this->label . "<br>";
-		$title  .= date('jS F Y', strtotime($this->exif['date_time'])) . " - " . $this->age  . " old ";
+		$title  .= date('jS F Y', strtotime($this->exif['date_time']));
+                if($this->config->config['show_age']) {
+                    $title  .= " - " . $this->age  . " old ";
+                }
 		$title  .= "<a href='#' class='show-more-options'>More options</a>";
 		$title  .= "<div class='more-options'>";
 		$title  .= "<p>";

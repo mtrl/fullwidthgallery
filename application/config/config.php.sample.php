@@ -15,6 +15,8 @@ $config['photo_thumbnail_height'] = '350';
 $config['photo_height'] = '1200';
 
 $config['dob'] = '2013-08-22';
+$config['show_age'] = false;
+$config['show_label'] = false;
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
