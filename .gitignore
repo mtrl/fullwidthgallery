@@ -8,3 +8,4 @@ passwd
 httpdocs/ht.access
 Rosemary.komodoproject
 .DS_Store
+scripts/*
